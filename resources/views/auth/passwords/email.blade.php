@@ -4,8 +4,8 @@
     <div class="row">
         {{-- Show success message --}}
         @if (session('status'))
-            <div class="col l8 offset-l2">
-                <alert message="{{ session('status') }}" type="success"></alert>
+            <div class="col l6 offset-l3 alerts">
+                <alert type="success" message="{{ Session::get('status') }}"></alert>
             </div>
         @endif
 
@@ -85,4 +85,13 @@
     </div>
 </div>
 --}}
+@endsection
+
+@section('scripts')
+    @parent
+    <script>
+        var alerts = new Vue({
+            el: '.alerts',
+        })
+    </script>
 @endsection
