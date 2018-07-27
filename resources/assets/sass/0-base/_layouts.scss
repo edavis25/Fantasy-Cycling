@@ -1,0 +1,22 @@
+.admin {
+  .admin-content {
+    @media screen and (min-width: $breakpoint-md) {
+      margin-left: 315px;
+    }
+  }
+
+  .sidenav {
+    @media screen and (min-width: $breakpoint-md) {
+      padding-top: 65px;
+      // Always show sidenav on large display
+      transform: translateX(0%);
+    }
+  }
+
+  // Top navbar
+  .nav-wrapper {
+    @media screen and (min-width: $breakpoint-md) {
+      margin-left: 300px;
+    }
+  }
+}

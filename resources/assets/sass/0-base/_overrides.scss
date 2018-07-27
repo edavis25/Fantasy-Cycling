@@ -1,0 +1,5 @@
+// Set z-index on select box options so they are not covered by overlays (ie. year select on datepicker)
+// The min z-index to avoid overlay cover seems to be: 1003
+ul[id^="select-options"] {
+  z-index: 1003;
+}

@@ -1,0 +1,19 @@
+// Generates a bunch of spacing helper classes
+// ie. mt0, pl5, mr10
+
+// Adjust this to include the pixel amounts you need.
+$spaceamounts: (-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100);
+// Used to generate margin/padding sides (don't adjust)
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}

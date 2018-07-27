@@ -1,0 +1,44 @@
+.clearfix {
+  clear: both !important;
+}
+
+.bg-grey {
+  background-color: $color-grey;
+  &-dark {
+    background-color: $color-grey-dark;
+  }
+  &-light {
+    background-color: $color-grey-light;
+  }
+}
+
+.text-grey {
+  color: $color-grey;
+  &-dark {
+    color: $color-grey-dark;
+  }
+  &-light {
+    color: $color-grey-light;
+  }
+}
+
+.bg-orange {
+  background-color: $color-orange;
+}
+.text-orange {
+  color: $color-orange;
+}
+
+.d-inline {
+  display: inline !important;
+}
+.d-inline-block {
+  display: inline-block !important;
+}
+.d-block {
+  display: block !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
