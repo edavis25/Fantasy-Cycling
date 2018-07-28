@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Race;
 use Illuminate\Http\Request;
+use JavaScript;
 
 class RaceController extends Controller
 {
@@ -53,6 +54,9 @@ class RaceController extends Controller
      */
     public function show(Race $race)
     {
+        Javascript::put([
+            'stages' => $race->stages
+        ]);
         return view('admin.races.show', compact('race'));
     }
 

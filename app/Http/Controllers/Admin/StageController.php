@@ -36,7 +36,9 @@ class StageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json('test');
+        }
     }
 
     /**

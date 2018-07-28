@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <a href="{{ route('admin.races.index') }}" class="waves-effect waves-light btn mt10 mb10">
+    <a href="{{ URL::previous() }}" class="waves-effect waves-light btn mt10 mb10">
         <i class="material-icons left ml-15">keyboard_arrow_left</i>back
     </a>
 
