@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StageRequest;
 use App\Race;
+use App\Stage;
 use Illuminate\Http\Request;
 
 class StageController extends Controller
@@ -31,13 +33,22 @@ class StageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StageRequest  $request
+     * @param  \App\Race                        $race
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StageRequest $request, Race $race)
     {
-        if ($request->ajax() || $request->wantsJson()) {
-            return response()->json('test');
+        try {
+            $stage = new Stage();
+            $stage->fill($request->all());
+            $stage->race()->associate($race);
+            $stage->save();
+
+            return response()->json($stage);
+        }
+        catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
         }
     }
 
