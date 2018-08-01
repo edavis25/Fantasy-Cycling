@@ -31,7 +31,7 @@
                                     <td>{{ $team->country }}</td>
                                     <td>
                                         <a href="{{ route('admin.teams.edit', $team) }}"><i class="material-icons">edit</i></a>
-                                        <delete-confirm csrf-token="{{ csrf_token() }}" item-id="{{ $team->id }}" delete-route="{{ route('admin.teams.destroy', $team) }}"></delete-confirm>
+                                        <delete-confirm item-id="{{ $team->id }}" delete-route="{{ route('admin.teams.destroy', $team) }}"></delete-confirm>
                                     </td>
                                 </tr>
                             @endforeach

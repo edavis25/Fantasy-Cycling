@@ -15,13 +15,16 @@
     export default {
         data() {
             return {
-                confirm: false
+                confirm: false,
+                csrfToken: ''
             }
+        },
+        mounted: function() {
+            this.csrfToken = document.getElementById('csrf-token').content;
         },
         props: [
             'itemId',
             'deleteRoute',
-            'csrfToken'
         ],
         methods: {
             confirmDelete: function() {

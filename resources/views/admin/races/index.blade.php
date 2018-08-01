@@ -37,7 +37,7 @@
                                     <td>{{ $race->start_date }}</td>
                                     <td>
                                         <a href="{{ route('admin.races.edit', $race) }}"><i class="material-icons">edit</i></a>
-                                        <delete-confirm csrf-token="{{ csrf_token() }}" item-id="{{ $race->id }}" delete-route="{{ route('admin.races.destroy', $race) }}"></delete-confirm>
+                                        <delete-confirm item-id="{{ $race->id }}" delete-route="{{ route('admin.races.destroy', $race) }}"></delete-confirm>
                                     </td>
                                 </tr>
                                 @endforeach
