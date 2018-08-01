@@ -36,6 +36,9 @@
     </div>
     --}}
 
+    {{-- Ziggy Named Routes --}}
+    @routes
+
     {{-- Compiled Scripts --}}
     <script src="{{ asset('js/app.js') }}"></script>
 
