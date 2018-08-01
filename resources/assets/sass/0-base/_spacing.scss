@@ -7,7 +7,7 @@ $spaceamounts: (-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50
 $sides: (top, bottom, left, right);
 
 @each $space in $spaceamounts {
-  .m#{$space} {
+  .m-#{$space} {
     margin: #{$space}px !important;
   }
 
