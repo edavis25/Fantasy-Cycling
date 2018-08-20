@@ -77,23 +77,35 @@ class StageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \App\Http\Requests\StageRequest  $request
+     * @param  \App\Race                        $race
+     * @param  \App\Stage                       $stage
+     * @return  \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StageRequest $request, Race $race, Stage $stage)
     {
-        //
+        $stage->fill($request->all());
+        $stage->save();
+
+        return response()->json(['stage' => $stage]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Race   $race
+     * @param  \App\Stage  $stage
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Race $race, Stage $stage)
     {
-        //
+        try {
+            $stage->delete();
+        }
+        catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Oops! Something went wrong: ' . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', $stage->name . ' deleted successfully!');
     }
 }
