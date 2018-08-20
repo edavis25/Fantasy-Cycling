@@ -55,8 +55,10 @@ class RaceController extends Controller
     public function show(Race $race)
     {
         Javascript::put([
-            'stages' => $race->stages
+            'stages' => $race->stages,
+            'race'   => $race
         ]);
+
         return view('admin.races.show', compact('race'));
     }
 
