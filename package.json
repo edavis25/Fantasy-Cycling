@@ -17,5 +17,9 @@
         "lodash": "^4.17.4",
         "vue": "^2.5.7",
         "materialize-css": "^0.100.2"
+    },
+    "dependencies": {
+        "uuid": "^3.3.2",
+        "vue-material": "^1.0.0-beta-11"
     }
 }

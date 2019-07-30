@@ -1,7 +1,7 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class DevUserSeeder extends Seeder
 {
@@ -12,11 +12,10 @@ class DevUserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name'     => 'Eric',
-            'email'    => 'eric@email.com',
-            'password' => bcrypt('password'),
-            'is_admin' => true,
-        ]);
+        $user = User::firstOrNew(['email' => 'admin@email.com']);
+        $user->name = 'Admin';
+        $user->password = bcrypt('password');
+        $user->is_admin = true;
+        $user->save();
     }
 }

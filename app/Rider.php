@@ -19,12 +19,31 @@ class Rider extends Model
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'name'
+    ];
+
+    /**
      * Get Rider's Full Name
      *
      * @return string
      */
     public function getFullName() : string
     {
-        return $this->first_name . ' ' . $this->last_name;
+        return trim($this->first_name . ' ' . $this->last_name);
+    }
+
+    /**
+     * Accessor for appending name property
+     *
+     * @return string
+     */
+    public function getNameAttribute() : string
+    {
+        return $this->getFullName();
     }
 }

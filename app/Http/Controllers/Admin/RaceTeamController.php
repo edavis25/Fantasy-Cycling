@@ -1,7 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Race;
+use App\RaceTeam;
+use App\Team;
 use Illuminate\Http\Request;
 
 class RaceTeamController extends Controller
@@ -11,9 +15,11 @@ class RaceTeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Race $race)
     {
-        //
+        $teams = $race->teams->load('team');
+
+        return response()->json(['teams' => $teams]);
     }
 
     /**
@@ -30,11 +36,19 @@ class RaceTeamController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Race                 $race
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Race $race)
     {
-        //
+        $team = Team::findOrFail($request->input('team_id'));
+        $race_team = RaceTeam::firstOrCreate([
+            'race_id' => $race->id,
+            'team_id' => $team->id
+        ]);
+        //$race->teams()->syncWithoutDetaching($team->id);
+
+        return response()->json(['team' => $race_team->load('team')]);
     }
 
     /**
@@ -77,8 +91,11 @@ class RaceTeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($race_id, $id)
     {
-        //
+        $race_team = RaceTeam::findOrFail($id);
+        $race_team->delete();
+
+        return response()->json(['success', 'Team removed']);
     }
 }

@@ -9851,6 +9851,10 @@ button.picker__close:focus {
   /*shape-rendering: crispEdges;*/
 }
 
+body {
+  background-color: #eee;
+}
+
 .clearfix {
   clear: both !important;
 }
@@ -9903,6 +9907,10 @@ button.picker__close:focus {
   cursor: pointer;
 }
 
+.m--25 {
+  margin: -25px !important;
+}
+
 .mt-25 {
   margin-top: -25px !important;
 }
@@ -9933,6 +9941,10 @@ button.picker__close:focus {
 
 .pr-25 {
   padding-right: -25px !important;
+}
+
+.m--20 {
+  margin: -20px !important;
 }
 
 .mt-20 {
@@ -9967,6 +9979,10 @@ button.picker__close:focus {
   padding-right: -20px !important;
 }
 
+.m--15 {
+  margin: -15px !important;
+}
+
 .mt-15 {
   margin-top: -15px !important;
 }
@@ -9997,6 +10013,10 @@ button.picker__close:focus {
 
 .pr-15 {
   padding-right: -15px !important;
+}
+
+.m--10 {
+  margin: -10px !important;
 }
 
 .mt-10 {
@@ -10031,6 +10051,10 @@ button.picker__close:focus {
   padding-right: -10px !important;
 }
 
+.m--5 {
+  margin: -5px !important;
+}
+
 .mt-5 {
   margin-top: -5px !important;
 }
@@ -10061,6 +10085,10 @@ button.picker__close:focus {
 
 .pr-5 {
   padding-right: -5px !important;
+}
+
+.m-0 {
+  margin: 0px !important;
 }
 
 .mt0 {
@@ -10095,6 +10123,10 @@ button.picker__close:focus {
   padding-right: 0px !important;
 }
 
+.m-5 {
+  margin: 5px !important;
+}
+
 .mt5 {
   margin-top: 5px !important;
 }
@@ -10125,6 +10157,10 @@ button.picker__close:focus {
 
 .pr5 {
   padding-right: 5px !important;
+}
+
+.m-10 {
+  margin: 10px !important;
 }
 
 .mt10 {
@@ -10159,6 +10195,10 @@ button.picker__close:focus {
   padding-right: 10px !important;
 }
 
+.m-15 {
+  margin: 15px !important;
+}
+
 .mt15 {
   margin-top: 15px !important;
 }
@@ -10189,6 +10229,10 @@ button.picker__close:focus {
 
 .pr15 {
   padding-right: 15px !important;
+}
+
+.m-20 {
+  margin: 20px !important;
 }
 
 .mt20 {
@@ -10223,6 +10267,10 @@ button.picker__close:focus {
   padding-right: 20px !important;
 }
 
+.m-25 {
+  margin: 25px !important;
+}
+
 .mt25 {
   margin-top: 25px !important;
 }
@@ -10253,6 +10301,10 @@ button.picker__close:focus {
 
 .pr25 {
   padding-right: 25px !important;
+}
+
+.m-30 {
+  margin: 30px !important;
 }
 
 .mt30 {
@@ -10287,6 +10339,10 @@ button.picker__close:focus {
   padding-right: 30px !important;
 }
 
+.m-35 {
+  margin: 35px !important;
+}
+
 .mt35 {
   margin-top: 35px !important;
 }
@@ -10317,6 +10373,10 @@ button.picker__close:focus {
 
 .pr35 {
   padding-right: 35px !important;
+}
+
+.m-40 {
+  margin: 40px !important;
 }
 
 .mt40 {
@@ -10351,6 +10411,10 @@ button.picker__close:focus {
   padding-right: 40px !important;
 }
 
+.m-45 {
+  margin: 45px !important;
+}
+
 .mt45 {
   margin-top: 45px !important;
 }
@@ -10381,6 +10445,10 @@ button.picker__close:focus {
 
 .pr45 {
   padding-right: 45px !important;
+}
+
+.m-50 {
+  margin: 50px !important;
 }
 
 .mt50 {
@@ -10415,6 +10483,10 @@ button.picker__close:focus {
   padding-right: 50px !important;
 }
 
+.m-75 {
+  margin: 75px !important;
+}
+
 .mt75 {
   margin-top: 75px !important;
 }
@@ -10445,6 +10517,10 @@ button.picker__close:focus {
 
 .pr75 {
   padding-right: 75px !important;
+}
+
+.m-100 {
+  margin: 100px !important;
 }
 
 .mt100 {

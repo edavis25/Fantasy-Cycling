@@ -33,13 +33,15 @@ Route::group([
     Route::resource('races', 'RaceController');
     Route::resource('teams', 'TeamController');
     Route::resource('riders', 'RiderController');
+    Route::resource('stage-scoring', 'StageScoringController');
 
     Route::group([
         'as' => 'race.'
     ], function() {
         Route::resource('{race}/stages', 'StageController');
+        Route::resource('{race}/teams', 'RaceTeamController');
+        Route::resource('{race}/riders', 'RaceRiderController');
         //Route::resource('{slug}/{year}/stages', 'StageController');
-        //Route::resource('{slug}/{year}/teams', 'RaceTeamController');
         //Route::resource('{slug}/{year}/stages', 'RaceRiderController');
     });
 });

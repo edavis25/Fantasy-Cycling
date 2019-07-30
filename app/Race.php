@@ -34,4 +34,35 @@ class Race extends Model
     {
         return $this->hasMany(Stage::class);
     }
+
+    /**
+     * Relationship: RaceTeam
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+//    public function teams()
+//    {
+//        return $this->belongsToMany(Team::class, 'race_teams');
+//    }
+
+    public function teams()
+    {
+        return $this->hasMany(RaceTeam::class);
+    }
+
+    /**
+     * Relationship: RaceRider
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function raceRiders()
+    {
+        return $this->hasMany(RaceRider::class);
+    }
+
+    public function riders()
+    {
+        return $this->hasManyThrough(Rider::class, RaceRider::class, 'rider_id', 'id', null, 'rider_id');
+        //return $this->belongsToMany(Rider::class);
+    }
 }

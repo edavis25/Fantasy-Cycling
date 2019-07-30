@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
             $this->call(DevUserSeeder::class);
         }
         $this->call(RiderRolesSeeder::class);
+        $this->call(StageScoringCategoriesSeeder::class);
     }
 }

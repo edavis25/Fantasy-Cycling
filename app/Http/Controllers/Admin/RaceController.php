@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Race;
+use App\Rider;
+use App\RiderRole;
+use App\Team;
 use Illuminate\Http\Request;
 use JavaScript;
 
@@ -54,9 +57,15 @@ class RaceController extends Controller
      */
     public function show(Race $race)
     {
+        $teams  = Team::orderBy('name')->get()->pluck('id', 'name');
+        $riders = Rider::orderBy('last_name', 'first_name')->get()->pluck('name', 'id');
+        $rider_roles = RiderRole::pluck('role', 'id');
         Javascript::put([
             'stages' => $race->stages,
-            'race'   => $race
+            'race'   => $race,
+            'teams'  => $teams,
+            'riders' => $riders,
+            'rider_roles' => $rider_roles
         ]);
 
         return view('admin.races.show', compact('race'));

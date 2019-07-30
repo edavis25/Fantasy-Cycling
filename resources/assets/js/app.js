@@ -9,19 +9,14 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import Vue from 'vue';
+import VueMaterial from 'vue-material';
+import 'vue-material/dist/vue-material.min.css';
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+Vue.use(VueMaterial);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('alert', require('./components/Alert.vue'));
-Vue.component('deleteConfirm', require('./components/DeleteConfirm.vue'));
-
-/*
-const app = new Vue({
-    el: '#app'
-});
-*/
+Vue.component('modal', require('./components/Modal.vue'));
+Vue.component('delete-confirm', require('./components/DeleteConfirm.vue'));
+Vue.component('stages-card', require('./components/StagesCardCrud.vue'));
+Vue.component('race-team-card', require('./components/RaceTeamCard.vue'));
