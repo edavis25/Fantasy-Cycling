@@ -94,7 +94,7 @@ class RaceController extends Controller
         $race->fill($request->all());
         $race->save();
 
-        return redirect()->back()->with('success', $race->name . ' updated successfully!');
+        return redirect(route('admin.races.index'))->with('success', $race->name . ' updated successfully!');
     }
 
     /**

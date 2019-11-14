@@ -1,78 +1,70 @@
 @extends('layouts.admin')
 
 @section('content')
-    <a href="{{ URL::previous() }}" class="waves-effect waves-light btn mt10 mb10">
-        <i class="material-icons left ml-15">keyboard_arrow_left</i>back
-    </a>
 
-    <div class="row">
-        <div class="col m12">
-            <div class="card">
-                <div class="card-content">
-                    @if (isset($race) && $race)
-                        <div class="card-title">Edit Race</div>
-                        {!! Form::model($race, ['route' => ['admin.races.update', $race], 'method' => 'PUT']) !!}
-                    @else
-                        <div class="card-title">Create New Race</div>
-                        {!! Form::open(['route' => ['admin.races.store'], 'method' => 'POST']) !!}
-                    @endif
-                    <div class="mt25">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                {!! Form::text('name', null, ['id' => 'name', 'class' => 'validate', 'required' => 'required']) !!}
-                                <label for="name">Name</label>
-                            </div>
+<a class="button is-primary is-link mb10" href="{{ route('admin.races.index') }}">
+    <i class="material-icons">keyboard_arrow_left</i>
+</a>
 
-                            <div class="input-field col m6">
-                                {!! Form::text('country', null, ['id' => 'country', 'class' => 'validate', 'required' => 'required']) !!}
-                                <label for="country">Country</label>
-                            </div>
+<div class="box">
+    <h1 class="title is-2">{{ isset($race) && $race ? 'Edit' : 'Create' }} Race</h1>
+    <hr>
 
-                            <div class="input-field col m6">
-                                {!! Form::number('year', null, ['id' => 'year', 'class' => 'validate', 'required' => 'required', 'min' => '2015']) !!}
-                                <label for="year">Year</label>
-                            </div>
+    {{-- Open either an edit or store form depending if a $race was passed in (so we can re-use) --}}
+    @if (isset($race) && $race)
+        {!! Form::model($race, ['route' => ['admin.races.update', $race], 'method' => 'PUT', 'class' => 'columns']) !!}
+    @else
+        {!! Form::open(['route' => ['admin.races.store'], 'method' => 'POST', 'class' => 'columns']) !!}
+    @endif
 
-                            <div class="input-field col m6">
-                                {!! Form::number('number_stages', null, ['id' => 'year', 'class' => 'validate', 'required' => 'required', 'min' => '1']) !!}
-                                <label for="number_stages">Number Stages</label>
-                            </div>
+    <div class="column is-one-third-desktop">
+        <div class="field">
+            <label class="label">Race Name</label>
+            <div class="control">
+                {!! Form::text('name', null, ['id' => 'name', 'class' => 'input', 'required' => 'required']) !!}
+            </div>
+        </div>
 
-                            <div class="input-field col m6">
-                                {!! Form::text('start_date', null, ['id' => 'start_date', 'class' => 'validate datepicker', 'required' => 'required']) !!}
-                                <label for="start_date">Start Date</label>
-                            </div>
+        <div class="field">
+            <label class="label">Country</label>
+            <div class="control">
+                {!! Form::text('country', null, ['id' => 'country', 'class' => 'input', 'required' => 'required']) !!}
+            </div>
+        </div>
 
-                        </div>
-                    </div>
-                    <div class="card-action pl0 pr0">
-                        <button class="btn waves-effect waves-light green" type="submit" name="action">
-                            Save
-                            <i class="material-icons right">send</i>
-                        </button>
-                        <button class="btn waves-effect waves-light red" type="reset">
-                            Reset
-                            <i class="material-icons right">settings_backup_restore</i>
-                        </button>
-                    </div>
-                        {!! Form::close() !!}
-                </div>
+        <div class="field">
+            <label class="label">Year</label>
+            <div class="control">
+                {!! Form::number('year', null, ['id' => 'year', 'class' => 'input', 'required' => 'required', 'min' => '2015']) !!}
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Number Stages</label>
+            <div class="control">
+                {!! Form::number('number_stages', null, ['id' => 'number_stages', 'class' => 'input', 'required' => 'required', 'min' => '1']) !!}
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Start Date</label>
+            <div class="control">
+                {!! Form::date('start_date', null, ['id' => 'start_date', 'class' => 'input', 'required' => 'required']) !!}
+            </div>
+        </div>
+
+        <br>
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-success">Submit</button>
+            </div>
+            <div class="control">
+                <button class="button is-danger is-light">Cancel</button>
             </div>
         </div>
     </div>
-@endsection
 
-@section('scripts')
-    @parent
-    <script>
-        $(document).ready(function(){
-            $('.datepicker').datepicker({
-                format: 'yyyy-mm-dd'
-            });
+    {!! Form::close() !!}
+</div>
 
-            $('.datepicker').on('focus', function() {
-                $(this).click();
-            });
-        });
-    </script>
 @endsection
