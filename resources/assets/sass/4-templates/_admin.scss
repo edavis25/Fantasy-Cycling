@@ -1,0 +1,50 @@
+/**
+ * Template for the admin dashboard w/ sidebar navigation
+ */
+
+.admin {
+
+    &__sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 15rem; /** @note should equal margin left for content */
+        padding: 20px 0;
+        background: $color-grey;
+    }
+    &__sidebarHeader {
+        font-size: 2em;
+        color: $color-orange;
+        margin-bottom: 1em;
+        padding-left: 10px;
+    }
+    &__sidebarLink {
+        padding: 1em;
+        color: #fff;
+        background: $color-grey-light;
+        font-weight: bold;
+        font-size: 1.5em;
+
+        a {
+            color: #fff;
+        }
+
+        &.--header {
+            background: $color-grey-dark;
+            color: lighten($color-grey-light, 5%);
+            text-transform: uppercase;
+            font-size: 1.25em;
+        }
+        &.--race {
+            font-size: 1.25em;
+        }
+    }
+
+
+    &__content {
+        margin-left: 15rem; /** @note should equal width of sidebar */
+        position: relative;
+        padding: 1rem;
+    }
+}
