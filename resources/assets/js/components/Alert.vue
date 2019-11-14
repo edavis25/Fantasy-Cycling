@@ -1,6 +1,6 @@
 <template>
     <transition name="fade">
-        <div  v-if="show" class="notification" :class="alertClass">
+        <div v-if="show" class="notification" :class="alertClass">
             <button class="delete" @click="close"></button>
             {{ this.message}}
         </div>
