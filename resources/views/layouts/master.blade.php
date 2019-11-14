@@ -15,30 +15,18 @@
     </title>
 
     {{-- Font Awesome 5.2.0 --}}
-{{--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">--}}
-
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-    <!-- Materialize Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    {{-- Materialize Icons --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    {{-- App Styles --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
 
-    @yield('body')
-    {{-- Navbar --}}
-    {{--
-    @section('navbar')
-        @include('layouts.navbar')
-    @show
-
-
-    <div class="container" id="app">
-        @yield('content')
+    <div id="app">
+        @yield('body')
     </div>
-    --}}
 
     {{-- Ziggy Named Routes --}}
     @routes
@@ -46,23 +34,7 @@
     {{-- Compiled Scripts --}}
     <script src="{{ asset('js/app.js') }}"></script>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-
-    {{-- Global Scripts --}}
-    <script>
-        $(document).ready(function(){
-            // Initialize Materialize.css Components
-            $('.sidenav').sidenav();
-            $('.collapsible').collapsible();
-            $('select').formSelect();
-
-            /** @note this initializes all the materialize Javascript components... this feature was added to the framework
-             * after I started using it, so we can probably investigate removing all of the individual initializations above*/
-            //M.AutoInit();
-        });
-    </script>
-
+    {{-- Additional Embedded Scripts --}}
     @yield('scripts')
 </body>
 

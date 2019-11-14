@@ -9,10 +9,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import Vue from 'vue';
-import VueMaterial from 'vue-material';
-import 'vue-material/dist/vue-material.min.css';
-
-Vue.use(VueMaterial);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('alert', require('./components/Alert.vue'));
@@ -20,3 +16,7 @@ Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('delete-confirm', require('./components/DeleteConfirm.vue'));
 Vue.component('stages-card', require('./components/StagesCardCrud.vue'));
 Vue.component('race-team-card', require('./components/RaceTeamCard.vue'));
+
+const app = new window.Vue({
+    'el': "#app",
+});
