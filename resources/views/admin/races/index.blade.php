@@ -4,7 +4,9 @@
 
 <div class="box">
     <h1 class="title is-2">Manage Races</h1>
-    <a class="button is-success is-rounded" href="{{ route('admin.races.create') }}">Create Race&nbsp;<i class="fa fa-plus"></i></a>
+    <a class="button is-success is-rounded" href="{{ route('admin.races.create') }}">
+        Create Race&nbsp;<i class="fa fa-plus"></i>
+    </a>
     <hr>
     <table class="table is-striped">
         <thead>

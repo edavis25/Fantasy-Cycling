@@ -3,11 +3,11 @@
 @section('content')
 
 <a class="button is-primary is-link mb10" href="{{ route('admin.races.index') }}">
-    <i class="material-icons">keyboard_arrow_left</i>
+    <i class="fa fa-chevron-left"></i>
 </a>
 
 <div class="box">
-    <h1 class="title is-2">{{ isset($race) && $race ? 'Edit' : 'Create' }} Race</h1>
+    <h1 class="title is-3">{{ isset($race) && $race ? 'Edit' : 'Create' }} Race</h1>
     <hr>
 
     {{-- Open either an edit or store form depending if a $race was passed in (so we can re-use) --}}
