@@ -9,7 +9,7 @@
         top: 0;
         left: 0;
         height: 100%;
-        width: 15rem; /** @note should equal margin left for content */
+        width: 20rem; /** @note should equal margin left for admin__content */
         padding: 20px 0;
         background: $color-grey;
     }
@@ -43,7 +43,7 @@
 
 
     &__content {
-        margin-left: 15rem; /** @note should equal width of sidebar */
+        margin-left: 20rem; /** @note should equal width of admin__sidebar */
         position: relative;
         padding: 1rem;
     }
