@@ -1,4 +1,60 @@
 <template>
+    <div> <!-- todo remove me (used to wrap in 1 root while refactoring) -->
+
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">
+                Stages
+                <button class="button is-success is-rounded ml15" @click="toggleCreatingStage()"><i class="fa fa-plus"></i></button>
+            </p>
+        </header>
+        <div class="card-content">
+            <div v-show="creatingStage" class="columns">
+                <div class="column field">
+                    <label class="label" for="stage_number">Stage Number</label>
+                    <div class="control">
+                        <input class="input" type="number" name="stage_number" v-model="newStage.stage_number" id="stage_number" />
+                    </div>
+                </div>
+
+                <div class="column field">
+                    <label class="label" for="start_location">Start Location</label>
+                    <div class="control">
+                        <input class="input" type="text" name="start_location" v-model="newStage.start_location" id="start_location" />
+                    </div>
+                </div>
+
+                <div class="column field">
+                    <label class="label" for="end_location">End Location</label>
+                    <div class="control">
+                        <input class="input" type="text" name="end_location" v-model="newStage.end_location" id="end_location" />
+                    </div>
+                </div>
+
+                <div class="column field">
+                    <label class="label" for="distance">Distance</label>
+                    <div class="control">
+                        <input class="input" type="number" name="distance" v-model="newStage.distance" id="distance" />
+                    </div>
+                </div>
+
+                <div class="column">
+                    <label class="label">&nbsp;<!-- empty for spacing --></label>
+                    <div class="is-grouped field">
+                        <div class="control">
+                            <button class="button is-danger" @click="cancelCreateStage()"><i class="fa fa-times-circle"></i></button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-success" @click="createStage()"><i class="fa fa-save"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="card">
         <div class="card-content">
             <a class="btn-floating right waves-effect waves-light green" v-show="canEdit" @click="toggleCreatingStage()" v-bind:disabled="creatingStage"><i class="material-icons">add</i></a>
@@ -6,8 +62,8 @@
         </div>
 
         <div class="card-content">
-            <alert v-show="responseStatus === 'success'" class="mt-25" type="success" v-bind:message="responseMessage"></alert>
-            <alert v-show="responseStatus === 'error'" class="mt-25" type="danger" v-bind:message="responseMessage"></alert>
+<!--            <alert v-show="responseStatus === 'success'" class="mt-25" type="success" v-bind:message="responseMessage"></alert>-->
+<!--            <alert v-show="responseStatus === 'error'" class="mt-25" type="danger" v-bind:message="responseMessage"></alert>-->
 
             <table v-show="creatingStage">
                 <tr>
@@ -69,6 +125,8 @@
             </table>
         </div>
     </div>
+
+    </div><!-- todo remove me -->
 </template>
 
 <script>
