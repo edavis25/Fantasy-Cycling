@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a class="button is-primary is-link mb10" href="{{ route('admin.dashboard') }}">
+<a class="button is-primary is-link mb10" href="{{ route('admin.index') }}">
     <i class="fa fa-chevron-left"></i>
 </a>
 <div class="box">

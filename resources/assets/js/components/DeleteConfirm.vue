@@ -2,7 +2,7 @@
     <form v-bind:action="deleteRoute" v-bind:id="'delete-form-' + itemId" method="POST" class="d-inline">
         <input type="hidden" name="_token" v-bind:value="csrfToken" />
         <input type="hidden" name="_method" value="DELETE" />
-        <i class="material-icons has-text-danger" @click="confirmDelete()">delete</i>
+        <i class="fa fa-trash has-text-danger pointer" @click="confirmDelete()"></i>
         <div v-show="confirm" class="blue-text">
             <span class="pointer" @click="deleteItem()">yes</span>
             /

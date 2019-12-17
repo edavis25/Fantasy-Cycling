@@ -1,6 +1,4 @@
 <template>
-    <div> <!-- todo remove me (used to wrap in 1 root while refactoring) -->
-
     <div class="card">
         <header class="card-header">
             <p class="card-header-title">
@@ -50,83 +48,23 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-
-    <div class="card">
-        <div class="card-content">
-            <a class="btn-floating right waves-effect waves-light green" v-show="canEdit" @click="toggleCreatingStage()" v-bind:disabled="creatingStage"><i class="material-icons">add</i></a>
-            <span class="card-title">Stages</span>
-        </div>
-
-        <div class="card-content">
-<!--            <alert v-show="responseStatus === 'success'" class="mt-25" type="success" v-bind:message="responseMessage"></alert>-->
-<!--            <alert v-show="responseStatus === 'error'" class="mt-25" type="danger" v-bind:message="responseMessage"></alert>-->
-
-            <table v-show="creatingStage">
-                <tr>
-                    <td>
-                        <div class="input-field">
-                            <input type="number" name="stage_number" v-model="newStage.stage_number" id="stage_number">
-                            <label for="stage_number">Stage Number</label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="input-field">
-                            <input type="text" name="start_location" v-model="newStage.start_location" id="start_location">
-                            <label for="start_location">Start Location</label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="input-field">
-                            <input type="text" name="end_location" v-model="newStage.end_location" id="end_location">
-                            <label for="end_location">End Location</label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="input-field">
-                            <input type="number" name="distance" v-model="newStage.distance" id="distance">
-                            <label for="distance">Distance</label>
-                        </div>
-                    </td>
-                    <td>
-                        <i class="material-icons green-text pointer" @click="createStage()">save</i>
-                        <i class="material-icons orange-text pointer" @click="cancelCreateStage()">cancel</i>
-                    </td>
-                </tr>
-            </table>
-
-            <table class="responsive-table highlight striped">
+            
+            <table class="table is-fullwidth">
                 <thead>
-                    <tr>
-                        <td>Stage Number</td>
-                        <td>Start Location</td>
-                        <td>End Location</td>
-                        <td>Distance (km)</td>
-                        <td>Actions</td>
-                    </tr>
+                <tr>
+                    <td>Stage Number</td>
+                    <td>Start Location</td>
+                    <td>End Location</td>
+                    <td>Distance (km)</td>
+                    <td>Actions</td>
+                </tr>
                 </thead>
                 <tbody>
-                <!--
-                <tr v-for="stage in stages">
-                    <td>{{ stage.stage_number }}</td>
-                    <td>{{ stage.start_location }}</td>
-                    <td>{{ stage.end_location }}</td>
-                    <td>{{ stage.distance }}</td>
-                    <td>
-                        <a href="###"><i class="material-icons text-blue">visibility</i></a>
-                    </td>
-                </tr>
-                -->
-                    <stage-row v-for="stage in stages" :key="stage.id" :stage="stage" :race="race" can-edit="true"></stage-row>
+                <stage-row v-for="stage in stages" :key="stage.id" :stage="stage" :race="race" can-edit="true"></stage-row>
                 </tbody>
             </table>
         </div>
     </div>
-
-    </div><!-- todo remove me -->
 </template>
 
 <script>

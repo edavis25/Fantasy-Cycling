@@ -29,7 +29,7 @@ Route::group([
     'namespace'  => 'Admin',
     'prefix'     => 'admin'
 ], function() {
-    Route::resource('/', 'DashboardController', ['as' => 'dashboard'])->only('index');
+    Route::resource('/', 'DashboardController')->only('index');
     Route::resource('races', 'RaceController');
     Route::resource('teams', 'TeamController');
     Route::resource('riders', 'RiderController');

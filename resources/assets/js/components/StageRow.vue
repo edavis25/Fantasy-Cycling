@@ -1,48 +1,44 @@
 <template>
     <tr>
         <td>
-            <div v-if="editing" class="input-field m-0">
-                <input type="number" class="m-0" name="stage_number" v-model="currentValues.stage_number" id="stage_number" min="1">
-                <label for="stage_number" class="active">Stage Number</label>
+            <div v-if="editing" class="field m-0">
+                <input type="number" class="input is-small" name="stage_number" v-model="currentValues.stage_number" id="stage_number" min="1">
             </div>
             <div v-else>{{ defaultValues.stage_number }}</div>
         </td>
         <td>
-            <div v-if="editing" class="input-field m-0">
-                <input type="text" class="m-0" name="start_location" v-model="currentValues.start_location" id="start_location">
-                <label for="start_location" class="active">Start Location</label>
+            <div v-if="editing" class="field m-0">
+                <input type="text" class="input is-small" name="start_location" v-model="currentValues.start_location" id="start_location">
             </div>
             <div v-else>{{ defaultValues.start_location }}</div>
         </td>
         <td>
-            <div v-if="editing" class="input-field m-0">
-                <input type="text" class="m-0" name="end_location" v-model="currentValues.end_location" id="end_location">
-                <label for="end_location" class="active">End Location</label>
+            <div v-if="editing" class="field m-0">
+                <input type="text" class="input is-small" name="end_location" v-model="currentValues.end_location" id="end_location">
             </div>
             <div v-else>{{ defaultValues.end_location }}</div>
         </td>
         <td>
-            <div v-if="editing" class="input-field m-0">
-                <input type="text" class="m-0" name="distance" v-model="currentValues.distance" id="distance" min="1">
-                <label for="distance" class="active">Distance (km)</label>
+            <div v-if="editing" class="field m-0">
+                <input type="number" class="input is-small" name="distance" v-model="currentValues.distance" id="distance" min="1">
             </div>
             <div v-else>{{ defaultValues.distance }}</div>
         </td>
         <td>
-            <a :href="editUrl" v-show="!editing"><i class="material-icons blue-text">equalizer</i></a>
+            <a :href="editUrl" v-show="!editing"><i class="fa fa-chart-area has-text-primary pointer"></i></a>
             <span v-show="canEdit">
                 <span v-if="editing && !saving && !saved">
-                    <i class="material-icons green-text pointer" @click="saveChanges()">save</i>
-                    <i class="material-icons orange-text pointer" @click="toggleEdit()">cancel</i>
+                    <i class="fa fa-save fa has-text-success pointer" @click="saveChanges()"></i>
+                    <i class="fa fa-ban  has-text-danger pointer" @click="toggleEdit()"></i>
                 </span>
                 <span v-else-if="editing && saving">
                     <i class="fas fa-sync fa-spin blue-text"></i>
                 </span>
                 <span v-else-if="editing && saved">
-                    <i class="material-icons green-text">check</i>
+                    <i class="fa fa-check has-text-success"></i>
                 </span>
                 <span v-else-if="!editing">
-                    <i class="material-icons orange-text pointer" @click="toggleEdit()">edit</i>
+                    <i class="fa fa-edit has-text-warning pointer" @click="toggleEdit()"></i>
                     <delete-confirm item-id="stage.id" :delete-route="deleteRoute"></delete-confirm>
                 </span>
             </span>
@@ -109,7 +105,8 @@
                     })
                     .catch((error) => {
                         // TODO: Do something w/ error
-                        console.log(error.response);
+                        alert('error');
+                        console.error(error.response);
                     })
                     .finally(() => {
                         this.saving = false;
